@@ -70,3 +70,32 @@ header {
     transition: opacity 0.2s;
     
 }
+
+.security-indicator {
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.security-indicator .bar {
+    height: 10px;
+    border-radius: 5px;
+
+    transition: all 0.2s;
+}
+
+.security-indicator .bar.completed {
+    border-radius: 0px;
+}
+
+.security-indicator .bar.critical {
+    background-color: #eb5757;
+}
+
+.security-indicator .bar.warning {
+    background-color: #f2c94c;
+}
+
+.security-indicator .bar.safe {
+    background-color: #27ae60;
+}
