@@ -35,7 +35,7 @@
             </div>
 
             <div class="security-indicator">
-                <div id="security-indicator-bar" class="bar" style="width: 90%;"></div>
+                <div id="security-indicator-bar" class="bar";></div>
             </div>
         </section>
 
@@ -87,7 +87,8 @@
         const inputEl = document.getElementById("password")
         const upperCaseCheckEl = document.getElementById("uppercase-check")
         const numbersCheckEl = document.getElementById("numbers-check")
-        const symbolCheckEl = document.getElementById("symbol-check")  
+        const symbolCheckEl = document.getElementById("symbol-check") 
+        const securityIndicatorBarEl = document.getElementById("security-indicator-bar") 
 
         let passwordLenght = 8
 
@@ -123,6 +124,38 @@
             
             inputEl.value = password
 
+            calculateQuality()
+
+        }
+
+        function calculateQuality() {
+
+            const percent = Math.round(
+                (passwordLenght / 64) * 25 + 
+                  (upperCaseCheckEl.checked ? 15 : 0)) + 
+                  (numbersCheckEl.checked ? 25 : 0) +
+                  (symbolCheckEl.checked ? 35 : 0)
+
+            console.log(percent)
+
+            securityIndicatorBarEl.style.width = `${percent}%`
+
+            if (percent > 69) {
+                // safe
+                securityIndicatorBarEl.classList.remove('critical')
+                securityIndicatorBarEl.classList.remove('warning')
+                securityIndicatorBarEl.classList.add('safe')
+            } else if ( percent > 50) {
+                // warning
+                securityIndicatorBarEl.classList.remove('critical')
+                securityIndicatorBarEl.classList.add('warning')
+                securityIndicatorBarEl.classList.remove('safe')
+            } else {
+                // critical
+                securityIndicatorBarEl.classList.add('critical')
+                securityIndicatorBarEl.classList.remove('warning')
+                securityIndicatorBarEl.classList.remove('safe')
+            }
         }
 
         function copy() {
