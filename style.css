@@ -73,7 +73,7 @@ header {
     font-size: 1rem;
 }
 
-.password .action button {
+.password .actions button {
     background-color: transparent;
     width: 42px;
     border: none;
@@ -124,7 +124,7 @@ header {
     padding-bottom: 0.75rem;
 }
 
-.customize .action {
+.customize .actions {
     display: flex;
     gap: 3rem;
     color: #828282;
@@ -242,4 +242,32 @@ header {
 
 .submit button:hover {
     background-color: #9b51e0;
+}
+
+@media only screen and (max-width: 480px) {
+    /* Quando uma tela estiver menor que 480px irá ter algumas configuração */
+
+    .password {
+        padding: 1rem;
+    }
+
+    .password .text input {
+        font-size: 1.5rem;
+    }
+
+    .password .text input.font-sm {
+        font-size: 1.2rem;
+    }
+
+    .password .text input.font-xs {
+        font-size: 1rem;
+    }
+
+    .password .text input.font-xxs {
+        font-size: 1rem;
+    }
+
+    .password .actions img {
+        width: 24px;
+    }
 }

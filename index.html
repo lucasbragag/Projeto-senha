@@ -28,7 +28,7 @@
                     <input type="text" name="password" id="password">
                 </div>
 
-                <div class="action">
+                <div class="actions">
                     <button id="copy-1"><img src="imagens/copy.svg" alt="logo-copiar"></button>
                     <button id="refresh"><img src="imagens/refresh.svg" alt="logo-refresh"></button>
                 </div>
@@ -42,7 +42,7 @@
         <section class="box customize">
             <h3 class="title">Personalizar</h3>
 
-            <div class="action">
+            <div class="actions">
                 <div class="password-length">
 
                     <p>Tamanho: <span id="password-length-text">8</span></p>
@@ -202,8 +202,8 @@
         const copyButton2 = document.getElementById("copy-2")
         copyButton2.addEventListener('click', copy)
 
-        //const refreshButton = document.getElementById("refresh")
-        //refreshButton.addEventListener()
+        const refreshButton = document.getElementById("refresh")
+        refreshButton.addEventListener('click', generatePassword)
 
 
         generatePassword()
